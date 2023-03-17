@@ -1,11 +1,12 @@
 import type { FC } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 const HomePage: FC = () => {
-  const name = 'home'
+  const navigate = useNavigate()
 
   return (
-    <div>
-      {name}
+    <div onClick={() => navigate('/battle')}>
+      go to battle
     </div>
   )
 }
