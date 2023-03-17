@@ -1,1 +1,0 @@
-"use strict";const n=require("electron"),o=()=>{const e=new n.BrowserWindow({title:"Main window"});process.env.VITE_DEV_SERVER_URL?e.loadURL(process.env.VITE_DEV_SERVER_URL):e.loadFile("dist-electron/index.html")};n.app.whenReady().then(()=>o());
