@@ -84,8 +84,7 @@ export class Elve {
     this.armor = 50
     this.magicResistance = 50
     this.id = id
-    const skill = new Skill(31)
-    this.skills = [skill, skill, skill]
+    this.skills = [new Skill(32), new Skill(33), new Skill(34), new Skill(35)]
     this.name = '毛虫兽'
   }
 
@@ -183,12 +182,8 @@ export class Elve {
   }
 
   /** 增益 */
-  public addBuff = () => {
-
-  }
+  public addBuff = () => {}
 
   /** 减益 */
-  public addDeBuff = () => {
-
-  }
+  public addDeBuff = () => {}
 }
