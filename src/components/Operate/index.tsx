@@ -4,10 +4,10 @@ import type { Skill } from '@/core/skill'
 
 interface SkillsProps {
   skills: Skill[]
-  handleUseSkill: (skill: Skill) => void
+  handleUseSkill?: (skill: Skill) => void
 }
 
-export const Skills: FC<SkillsProps> = ({ skills, handleUseSkill }) => {
+export const Operate: FC<SkillsProps> = ({ skills, handleUseSkill }) => {
   return (
     <div>
       <List
@@ -24,15 +24,10 @@ export const Skills: FC<SkillsProps> = ({ skills, handleUseSkill }) => {
         renderItem={(item, index) => (
           <List.Item
             key={`${item.id}-${index}`}
-            onClick={() => handleUseSkill(item)}
+            onClick={() => handleUseSkill?.(item)}
           >
             <Card>
-              <p>{item.skillType}</p>
-              <p>{item.name}</p>
-              <p>
-                次数{item.times - item.usedTimes} / {item.times}
-              </p>
-              <p>威力{item.harm}</p>
+              <p>道具</p>
             </Card>
           </List.Item>
         )}

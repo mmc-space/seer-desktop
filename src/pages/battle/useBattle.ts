@@ -14,9 +14,8 @@ export const useBattle = (
   player2?: Player,
   robotId?: number,
 ) => {
-  const battle = useRef(
-    new Battle(player1, player2 ?? new Robot([robotId ?? 31])),
-  ).current
+  player2 = player2 ?? new Robot([robotId ?? 31])
+  const battle = useRef(new Battle(player1, player2)).current
   const { userStore } = useStore() ?? {}
   const [loading, setLoading] = useState(false)
   const [round, setRound] = useState(0)
@@ -37,7 +36,6 @@ export const useBattle = (
   useEffect(() => {
     console.log(battle)
 
-    // eslint-disable-next-line no-unused-expressions
     if (battle.currentPlayer?.id === userStore?.user?.id)
       console.log('你的回合')
 
@@ -49,5 +47,7 @@ export const useBattle = (
     loading,
     round,
     ...battle,
+    self: player1,
+    opponent: player2,
   }
 }

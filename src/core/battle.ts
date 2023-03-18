@@ -20,8 +20,8 @@ enum GameStatus {
 }
 
 export class Battle {
-  private player1?: Player
-  private player2?: Player
+  public player1?: Player
+  public player2?: Player
 
   /** 当前玩家 */
   public currentPlayer?: Player
