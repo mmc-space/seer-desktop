@@ -24,4 +24,4 @@ player2.currentElve = elve2
 // start battle
 const battle = new Battle(player1, player2)
 
-export const test = () => battle.takeTurn(31)
+export const test = () => battle.takeTurn(skill1)

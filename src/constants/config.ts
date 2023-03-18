@@ -11,7 +11,7 @@ export const MAX_LOW_ELVE_EXP = 39999
 export const MAX_HIGH_ELVE_EXP = 59999
 
 /** 对战技能最长等待时间 10s */
-export const MAX_LOADING_TIME = 10 * 100
+export const MAX_LOADING_TIME = 10 * 1000
 
 /** Robat userID 🐕管理专用 */
 export const RobatUserId = 31312314

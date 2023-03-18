@@ -1,3 +1,4 @@
+import type { Elve } from './elves'
 import type { Player } from './player'
 import type { Skill } from './skill'
 
@@ -45,7 +46,7 @@ export class Battle {
   }
 
   /** 检查玩家的精灵是否全部死亡 */
-  private isElvesDead(elves: { hp?: number }[]): boolean {
+  private isElvesDead(elves: Elve[]): boolean {
     return elves.every(({ hp }) => hp === 0)
   }
 
