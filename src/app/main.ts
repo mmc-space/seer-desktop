@@ -1,4 +1,4 @@
-import { BrowserWindow, app } from 'electron'
+import { BrowserWindow, app, globalShortcut } from 'electron'
 import { initTray } from './tray'
 
 const createWindow = () => {
@@ -17,6 +17,11 @@ const createWindow = () => {
   if (process.env.VITE_DEV_SERVER_URL)
     win.loadURL(process.env.VITE_DEV_SERVER_URL)
   else win.loadFile('dist-electron/index.html')
+
+  // Default open DevTools by F12 in development
+  globalShortcut.register('F12', () => {
+    win!.webContents.openDevTools() // 打开F12调试页面
+  })
 }
 
 app.whenReady().then(createWindow)
