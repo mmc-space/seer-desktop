@@ -1,4 +1,5 @@
-import { BrowserWindow, app, globalShortcut } from 'electron'
+import { join } from 'path'
+import { BrowserWindow, app, globalShortcut, ipcMain } from 'electron'
 import { initTray } from './tray'
 
 const createWindow = () => {
@@ -8,6 +9,9 @@ const createWindow = () => {
     // skipTaskbar: true, // 任务栏不显示图标
     resizable: false, // 是否允许改变窗口尺寸
     // alwaysOnTop: true, // 窗口是否总是在最前端
+    webPreferences: {
+      preload: join(__dirname, './preload.js'),
+    },
   })
 
   // load menus
@@ -25,3 +29,10 @@ const createWindow = () => {
 }
 
 app.whenReady().then(createWindow)
+
+// IPC
+ipcMain.handle('ping', () => {
+  return new Promise((resolve, _reject) => {
+    setTimeout(resolve, 1 * 2000, 'pong')
+  })
+})

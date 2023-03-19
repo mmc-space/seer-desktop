@@ -10,7 +10,7 @@ const instance = axios.create(axiosConfig)
 instance.interceptors.request.use((config) => {
   const token = localStorage.getItem('token')
 
-  if (!config.headers) config.headers = {}
+  // if (!config.headers) config.headers = {}
 
   config.headers.token = token
 
