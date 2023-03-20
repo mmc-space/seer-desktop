@@ -14,19 +14,22 @@ const BattlePage = () => {
     useSkill(skill)
   }
 
+  // grid 9宫格布局
   return (
-    <div>
-      <p>当前回合: {round}</p>
-      <div className="flex">
+    <div className="grid grid-rows-3">
+      <div className="grid grid-cols-3">
         {/* self */}
         <div className="flex-1">
           <p>HP: {self.currentElve?.hp}</p>
         </div>
+        {/*  */}
+        <div>当前回合: {round}</div>
         {/* oppoent */}
         <div className="flex flex-1 justify-end">
           <p>HP: {opponent.currentElve?.hp}</p>
         </div>
       </div>
+      <div></div>
       <div className="grid gap-1 grid-cols-3">
         {/* logs */}
         <BattleLog logs={logs} />

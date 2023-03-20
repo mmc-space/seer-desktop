@@ -16,7 +16,7 @@ const HomePage: FC = () => {
       <p onClick={ping}>
         electron上下文隔离例子-
         {
-        `node: V${window.versions.node()}`
+        `node: V${window.versions?.node()}`
         }
       </p>
     </div>
