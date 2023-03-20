@@ -13,7 +13,10 @@ export default defineConfig({
     viteEslint(),
     react(),
     electron({
-      entry: 'src/app/main.ts',
+      entry: {
+        main: 'src/app/main.ts',
+        preload: 'src/app/preload.ts',
+      },
     }),
   ],
   resolve: {
