@@ -1,0 +1,34 @@
+{
+  "name": "seer",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "fix": "eslint --ext .ts,.tsx --fix --quiet ./src",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@pixi/react": "^7.0.2",
+    "mockjs": "^1.1.0",
+    "pixi.js": "^7.1.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "zustand": "^4.3.6"
+  },
+  "devDependencies": {
+    "@mmc-cloud/eslint-config": "^1.0.4",
+    "@types/node": "^18.13.0",
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@vitejs/plugin-react": "^2.2.0",
+    "eslint": "^8.29.0",
+    "react-router-dom": "^6.8.2",
+    "typescript": "^4.6.4",
+    "unocss": "^0.50.4",
+    "vite": "^3.2.3",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-mock": "^2.9.6"
+  }
+}
