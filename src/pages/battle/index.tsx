@@ -23,6 +23,11 @@ const BattlePage = () => {
           logs.map((log, index) => <li key={index}>{log}</li>)
         }
       </ul>
+      <ul>
+        {
+          player.currentElve?.getBuff().join('-')
+        }
+      </ul>
       {/* skills */}
       <ul className="flex">
         {

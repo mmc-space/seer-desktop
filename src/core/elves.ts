@@ -6,12 +6,12 @@ import { MAX_ELVE_LVEVL } from '@/data/config'
 
 export type ElveID = number
 
-type Buff = Record<
+export type Buff = Partial<Record<
   keyof Required<
     Pick<Elve, 'ap' | 'ad' | 'armor' | 'magicResistance' | 'hitRate'>
   >,
   number
->
+>>
 
 // 修改属性
 export type Attribute = Partial<Pick<Elve, 'hp'> & Buff>
@@ -130,6 +130,17 @@ export class Elve {
     console.log()
   }
 
+  /**
+   * 获取buff
+   * @returns Buff
+   */
+  public getBuff() {
+    const buff: Record<string, number> = this.buff ?? {}
+    const { ad = 0, ap = 0, armor = 0, magicResistance = 0, hitRate = 0 } = buff
+
+    return [ad, ap, armor, magicResistance, hitRate]
+  }
+
   /** 随机生成种族值 */
   public getRandomSpecie() {
     return Math.floor(Math.random() * 32)
@@ -182,13 +193,15 @@ export class Elve {
   }
 
   /** 增益 */
-  public addBuff = (buff: Partial<Buff>) => {
+  public addBuff = (buff: Buff) => {
     const { ad, ap, armor, magicResistance, hitRate } = buff
     if (ad) this.ad += ad * this.ad
     if (ap) this.ap += ap * this.ap
     if (armor) this.armor += armor * this.armor
     if (magicResistance) this.magicResistance += magicResistance * this.magicResistance
     if (hitRate) this.hitRate += hitRate * this.hitRate
+
+    this.buff = { ...buff }
   }
 
   /** 减益 */
